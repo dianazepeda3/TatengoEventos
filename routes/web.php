@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('producto', [ProductoController::class, 'index']);
+//Route::get('producto', [ProductoController::class, 'index']);
+Route::resource('producto', ProductoController::class);
