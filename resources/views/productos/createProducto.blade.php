@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create</title>
 </head>
 <body>
     <a href="/producto" class="nav__enlace nav__enlace--activo">INICIO</a>
@@ -15,22 +15,25 @@
     <form action="/producto" method="POST">
         @csrf
         <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" type="text" required><br><br>
+        <input id="nombre" name="nombre" type="text" value="{{ old('nombre') }}"><br><br>
+        @error('nombre')
+            <h4>{{ $message }}</h4>
+        @enderror
 
         <label for="descripcion">Descripcion</label>
-        <input id="descripcion" name="descripcion" type="text"><br><br>
+        <input id="descripcion" name="descripcion" type="text" value="{{ old('descripcion') }}"><br><br>
 
         <label for="color">Color</label>
-        <input id="color" name="color" type="text"><br><br>
+        <input id="color" name="color" type="text" value="{{ old('color') }}"><br><br>
 
         <label for="total">Total</label>
-        <input id="total" name="total" type="number"><br><br>
+        <input id="total" name="total" type="number" value="{{ old('total') }}"><br><br>
 
         <label for="disponible">Disponible</label>
-        <input id="disponible" name="disponible" type="number"><br><br>
+        <input id="disponible" name="disponible" type="number" value="{{ old('disponible') }}"><br><br>
 
         <label for="precio">Precio</label>
-        <input id="precio" name="precio" type="number"><br><br>
+        <input id="precio" name="precio" type="number" value="{{ old('precio') }}"><br><br>
 
         <input type="submit" value="Agregar">
     </form>
