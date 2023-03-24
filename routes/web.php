@@ -14,8 +14,26 @@ use App\Http\Controllers\ProductoController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});¨*/
+
+Route::get('/', function () {
+    return view('dashboard-user');
+});
+
+//*** ADMIN ****
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/admin/lista-productos',  [ProductoController::class,'index']);
+Route::get('/admin/add-producto',  [ProductoController::class,'create']);
+
+//end ADMIN
+
+Route::get('/login', function () {
+    return view('login');
 });
 
 //Route::get('producto', [ProductoController::class, 'index']);

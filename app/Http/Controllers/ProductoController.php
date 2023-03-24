@@ -15,7 +15,8 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view('productos/indexProductos', compact('productos'));
+        //return view('productos/indexProductos', compact('productos'));
+        return view('../admin/list-productos', compact('productos'));
     }
 
     /**
@@ -23,33 +24,42 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos/createProducto');
+        //return view('productos/createProducto');
+        return view('../admin/add-producto');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {      
+        echo $request;
+        //dd();  
         $request->validate([
             'nombre' => 'string|required',
-            'descripcion' => 'string',
-            'color' => 'string',
+            'categoria' => 'string',
+            'precio' => 'numeric',            
+            'color' => 'string|nullable',
             'total' => 'numeric|min:0',
             'disponible' => 'numeric',
-            'precio' => 'numeric',
+            'descripcion' => 'string|nullable',
         ]);
+        
         
         $producto = new Producto();
         $producto->nombre = $request->nombre;
-        $producto->descripcion = $request->descripcion;
+        //$producto->codigo = $request->codigo;
+        $producto->categoria = $request->categoria;
         $producto->color = $request->color;
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;
+        $producto->descripcion = $request->descripcion;
         $producto->save();
 
-        return redirect('/producto');
+        
+        return redirect('/admin/lista-productos');
+        //return redirect('/producto');
     }
 
     /**
