@@ -50,7 +50,9 @@ class ProductoController extends Controller
         $producto->nombre = $request->nombre;
         //$producto->codigo = $request->codigo;
         $producto->categoria = $request->categoria;
-        $producto->color = $request->color;
+        if(isset( $request->color)){
+            $producto->color = $request->color;
+        } 
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;
@@ -58,7 +60,7 @@ class ProductoController extends Controller
         $producto->save();
 
         
-        return redirect('/admin/lista-productos');
+        return redirect('../admin/lista-productos');
         //return redirect('/producto');
     }
 
@@ -75,7 +77,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        return view('productos/editProducto', compact('producto'));
+        return view('../admin/edit-producto', compact('producto'));
+        //return view('productos/editProducto', compact('producto'));
     }
 
     /**
@@ -83,18 +86,28 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto): RedirectResponse
     {
+        
         $request->validate([
             'nombre' => 'string|required',
             'descripcion' => 'string',
-            'color' => 'string',
+            'color' => 'string|nullable',
             'total' => 'numeric|min:0',
             'disponible' => 'numeric',
             'precio' => 'numeric',
+            'categoria' => 'string',
         ]);
         
+    
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
-        $producto->color = $request->color;
+        
+        if(isset($request->color)){
+            $producto->color = $request->color;
+        }else{
+            $producto->color = "N/A";
+        } 
+                              
+        $producto->categoria = $request->categoria;
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;

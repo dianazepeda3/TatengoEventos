@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Tatengo Eventos - Admin</title>
         
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="../assets-admin/images/favicon.ico" />
-        <link rel="stylesheet" href="../assets-admin/css/backend-plugin.min.css">
-        <link rel="stylesheet" href="../assets-admin/css/backend.css?v=1.0.0">
-        <link rel="stylesheet" href="../assets-admin/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-        <link rel="stylesheet" href="../assets-admin/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-        <link rel="stylesheet" href="../assets-admin/vendor/remixicon/fonts/remixicon.css">  
+        <!-- Favicon -->        
+        <link rel="shortcut icon" href="/assets-admin/images/favicon.ico" />
+        <link rel="stylesheet" href="/assets-admin/css/backend-plugin.min.css">
+        <link rel="stylesheet" href="/assets-admin/css/backend.css?v=1.0.0">
+        <link rel="stylesheet" href="/assets-admin/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="/assets-admin/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+        <link rel="stylesheet" href="/assets-admin/vendor/remixicon/fonts/remixicon.css">  
     </head>
     <body class=" color-light ">
         <!-- loader Start -->
@@ -29,7 +29,7 @@
                         <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                             <i class="ri-menu-line wrapper-menu"></i>
                             <a href="../backend/index.html" class="header-logo">
-                                <img src="../assets-admin/images/logo.png" class="img-fluid rounded-normal" alt="logo">
+                                <img src="/assets-admin/images/logo.png" class="img-fluid rounded-normal" alt="logo">
                                 <h5 class="logo-title ml-3">POSDash</h5>
                             </a>
                         </div>
@@ -94,7 +94,7 @@
                                                             <div class="media align-items-center cust-card py-3 border-bottom">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/01.jpg" alt="01">
+                                                                        src="/assets-admin/images/user/01.jpg" alt="01">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -109,7 +109,7 @@
                                                             <div class="media align-items-center cust-card py-3 border-bottom">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/02.jpg" alt="02">
+                                                                        src="/assets-admin/images/user/02.jpg" alt="02">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -124,7 +124,7 @@
                                                             <div class="media align-items-center cust-card py-3">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/03.jpg" alt="03">
+                                                                        src="/assets-admin/images/user/03.jpg" alt="03">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -169,7 +169,7 @@
                                                             <div class="media align-items-center cust-card py-3 border-bottom">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/01.jpg" alt="01">
+                                                                        src="/assets-admin/images/user/01.jpg" alt="01">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -184,7 +184,7 @@
                                                             <div class="media align-items-center cust-card py-3 border-bottom">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/02.jpg" alt="02">
+                                                                        src="/assets-admin/images/user/02.jpg" alt="02">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -199,7 +199,7 @@
                                                             <div class="media align-items-center cust-card py-3">
                                                                 <div class="">
                                                                     <img class="avatar-50 rounded-small"
-                                                                        src="../assets-admin/images/user/03.jpg" alt="03">
+                                                                        src="/assets-admin/images/user/03.jpg" alt="03">
                                                                 </div>
                                                                 <div class="media-body ml-3">
                                                                     <div class="d-flex align-items-center justify-content-between">
@@ -222,15 +222,15 @@
                                     <li class="nav-item nav-icon dropdown caption-content">
                                         <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img src="../assets-admin/images/user/1.png" class="img-fluid rounded" alt="user">
+                                            <img src="/assets-admin/images/user/1.png" class="img-fluid rounded" alt="user">
                                         </a>
                                         <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <div class="card shadow-none m-0">
                                                 <div class="card-body p-0 text-center">
                                                     <div class="media-body profile-detail text-center">
-                                                        <img src="../assets-admin/images/page-img/profile-bg.jpg" alt="profile-bg"
+                                                        <img src="/assets-admin/images/page-img/profile-bg.jpg" alt="profile-bg"
                                                             class="rounded-top img-fluid mb-4">
-                                                        <img src="../assets-admin/images/user/1.png" alt="profile-img"
+                                                        <img src="/assets-admin/images/user/1.png" alt="profile-img"
                                                             class="rounded profile-img img-fluid avatar-70">
                                                     </div>
                                                     <div class="p-3">
@@ -291,7 +291,7 @@
                             </ul>-->
                         </div>
                         <div class="col-lg-6 text-right">
-                            <span class="mr-1"><script>document.write(new Date().getFullYear())</script>©</span> <a href="../admin" class="">Tatengo Eventos</a>.
+                            <span class="mr-1"><script>document.write(new Date().getFullYear())</script>©</span> <a href="/admin" class="">Tatengo Eventos</a>.
                         </div>
                     </div>
                 </div>
@@ -299,18 +299,18 @@
         </div>
     </footer>
     <!-- Backend Bundle JavaScript -->
-    <script src="../assets-admin/js/backend-bundle.min.js"></script>
+    <script src="/assets-admin/js/backend-bundle.min.js"></script>
     
     <!-- Table Treeview JavaScript -->
-    <script src="../assets-admin/js/table-treeview.js"></script>
+    <script src="/assets-admin/js/table-treeview.js"></script>
     
     <!-- Chart Custom JavaScript -->
-    <script src="../assets-admin/js/customizer.js"></script>
+    <script src="/assets-admin/js/customizer.js"></script>
     
     <!-- Chart Custom JavaScript -->
-    <script async src="../assets-admin/js/chart-custom.js"></script>
+    <script async src="/assets-admin/js/chart-custom.js"></script>
     
     <!-- app JavaScript -->
-    <script src="../assets-admin/js/app.js"></script>
+    <script src="/assets-admin/js/app.js"></script>
   </body>
 </html>

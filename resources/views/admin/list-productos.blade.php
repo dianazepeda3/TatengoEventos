@@ -6,7 +6,7 @@
                     <div>
                         <h4 class="mb-3">Lista de Productos</h4>
                     </div>
-                    <a href="../admin/add-producto" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Agregar Producto</a>
+                    <a href="/admin/add-producto" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Agregar Producto</a>
                 </div>
             </div>            
             <div class="col-lg-12">
@@ -59,7 +59,7 @@
                                         <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver"
                                             href="#"><i class="ri-eye-line mr-0"></i></a>
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"
-                                            href="#"><i class="ri-pencil-line mr-0"></i></a>
+                                             href="{{route('admin.producto.editar', $prod)}}"><i class="ri-pencil-line mr-0"></i></a>
                                         <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
                                             href="#"><i class="ri-delete-bin-line mr-0"></i></a>
                                     </div>

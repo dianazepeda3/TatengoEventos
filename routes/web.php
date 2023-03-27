@@ -29,6 +29,8 @@ Route::get('/admin', function () {
 
 Route::get('/admin/lista-productos',  [ProductoController::class,'index']);
 Route::get('/admin/add-producto',  [ProductoController::class,'create']);
+Route::get('/admin/producto/{producto}/edit',  [ProductoController::class,'edit'])->name('admin.producto.editar');
+
 
 //end ADMIN
 
