@@ -15,7 +15,6 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        //return view('productos/indexProductos', compact('productos'));
         return view('/admin/list-productos', compact('productos'));
     }
 
@@ -24,7 +23,6 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //return view('productos/createProducto');
         return view('/admin/add-producto');
     }
 
@@ -61,7 +59,6 @@ class ProductoController extends Controller
 
         
         return redirect()->route('producto.index');
-        //return redirect('/producto');
     }
 
     /**
@@ -78,7 +75,6 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         return view('/admin/edit-producto', compact('producto'));
-        //return view('productos/editProducto', compact('producto'));
     }
 
     /**
