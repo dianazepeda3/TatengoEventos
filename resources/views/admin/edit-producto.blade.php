@@ -8,6 +8,7 @@
                     </div>
                     <a href="/admin/lista-productos" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
                 </div>
+                <x-validation-errors/>        
             </div>  
             <div class="col-sm-12">
                 <div class="card">                    
@@ -16,7 +17,7 @@
                             <h4 class="card-title">Editar Producto</h4>                                           
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body">                                                
                         <form action={{ route('producto.update', $producto) }} method="POST" data-toggle="validator">
                             @csrf
                             @method('PATCH')                            
@@ -27,7 +28,7 @@
                                         <input id="nombre" name="nombre" type="text" class="form-control" value="{{ old('nombre') ?? $producto->nombre }}" placeholder="Ingresa nombre" data-errors="Please Enter Name." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>                                  
+                                </div>                                                        
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Categoria *</label>
@@ -74,7 +75,7 @@
                                         <input id="precio" name="precio" type="text" class="form-control" value="{{ old('precio') ?? $producto->precio }}" placeholder="Ingresa precio" data-errors="Please Enter Price." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>
+                                </div>                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Color </label>

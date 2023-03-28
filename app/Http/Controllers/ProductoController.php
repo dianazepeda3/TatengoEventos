@@ -16,7 +16,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
         //return view('productos/indexProductos', compact('productos'));
-        return view('../admin/list-productos', compact('productos'));
+        return view('/admin/list-productos', compact('productos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductoController extends Controller
     public function create()
     {
         //return view('productos/createProducto');
-        return view('../admin/add-producto');
+        return view('/admin/add-producto');
     }
 
     /**
@@ -38,10 +38,10 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'string|required',
             'categoria' => 'string',
-            'precio' => 'numeric',            
+            'precio' => 'numeric|min:0',            
             'color' => 'string|nullable',
             'total' => 'numeric|min:0',
-            'disponible' => 'numeric',
+            'disponible' => 'numeric|min:0',
             'descripcion' => 'string|nullable',
         ]);
         
@@ -60,7 +60,7 @@ class ProductoController extends Controller
         $producto->save();
 
         
-        return redirect('../admin/lista-productos');
+        return redirect()->route('producto.index');
         //return redirect('/producto');
     }
 
@@ -77,7 +77,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        return view('../admin/edit-producto', compact('producto'));
+        return view('/admin/edit-producto', compact('producto'));
         //return view('productos/editProducto', compact('producto'));
     }
 
@@ -92,8 +92,8 @@ class ProductoController extends Controller
             'descripcion' => 'string|nullable',
             'color' => 'string|nullable',
             'total' => 'numeric|min:0',
-            'disponible' => 'numeric',
-            'precio' => 'numeric',
+            'disponible' => 'numeric|min:0',
+            'precio' => 'numeric|min:0',
             'categoria' => 'string',
         ]);
         
@@ -113,7 +113,7 @@ class ProductoController extends Controller
         $producto->precio = $request->precio;
         $producto->save();             
 
-        return redirect('/producto');
+        return redirect()->route('producto.index');
     }
 
     /**

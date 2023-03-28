@@ -30,12 +30,12 @@
                     </a>
                     <ul id="product" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         <li class="@if($sel == "listP") active @endif">
-                            <a href="/admin/lista-productos">
+                            <a href={{route('producto.index')}}>
                                 <i class="las la-minus"></i><span>Lista de Productos</span>
                             </a>
                         </li>
                         <li class="@if($sel == "addP") active @endif">
-                            <a href="/admin/add-producto">
+                            <a href={{route('producto.create')}}>
                                 <i class="las la-minus"></i><span>Agregar Productos</span>
                             </a>
                         </li>

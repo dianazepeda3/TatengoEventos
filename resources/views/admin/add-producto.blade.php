@@ -6,8 +6,19 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href="/admin/lista-productos" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
+                    <a href={{route('producto.index')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-secondary" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <div class="iq-alert-text">
+                                    <li>{{ $error }}</li>                        
+                                </div>
+                            @endforeach
+                        </ul>
+                    </div>   
+                 @endif   
             </div>  
             <div class="col-sm-12">
                 <div class="card">                    
@@ -19,46 +30,14 @@
                     <div class="card-body">
                         <form action="/producto" method="POST" data-toggle="validator">
                             @csrf
-                            <div class="row">
-                                <!--<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Tipo de Producto *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Standard</option>
-                                            <option>Combo</option>
-                                            <option>Digital</option>
-                                            <option>Service</option>
-                                        </select>
-                                    </div> 
-                                </div>  -->
+                            <div class="row">                             
                                 <div class="col-md-6">                      
                                     <div class="form-group">
                                         <label>Nombre *</label>
                                         <input id="nombre" name="nombre" type="text" class="form-control" value="{{ old('nombre') }}" placeholder="Ingresa nombre" data-errors="Please Enter Name." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>    
-                                <!--<div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Codigo *</label>
-                                        <input id="codigo" name="codigo" type="text" class="form-control" placeholder="Enter Code" data-errors="Please Enter Code." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div> -->
-                                <!--<div class="col-md-6"> 
-                                    <div class="form-group">
-                                        <label>Barcode Symbology *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>CREM01</option>
-                                            <option>UM01</option>
-                                            <option>SEM01</option>
-                                            <option>COF01</option>
-                                            <option>FUN01</option>
-                                            <option>DIS01</option>
-                                            <option>NIS01</option>
-                                        </select>
-                                    </div>
-                                </div> -->
+                                </div>                                   
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Categoria *</label>
@@ -72,14 +51,7 @@
                                             <option>Decoración</option>
                                         </select>
                                     </div>
-                                </div>
-                                <!--<div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Precio *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Cost" data-errors="Please Enter Cost." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>-->
+                                </div>                            
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Precio *</label>
@@ -93,16 +65,7 @@
                                         <input id="color" name="color" type="text" class="form-control" value="{{ old('color') }}" placeholder="Ingresa color" >
                                         
                                     </div>
-                                </div>
-                                <!--<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Tax Method *</label>
-                                        <select name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Exclusive</option>
-                                            <option>Inclusive</option>
-                                        </select>
-                                    </div>
-                                </div>-->
+                                </div>                       
                                 <div class="col-md-6">                                    
                                     <div class="form-group">
                                         <label>Total *</label>
@@ -116,13 +79,7 @@
                                         <input id="disponible" name="disponible" type="text" class="form-control" value="{{ old('disponible') }}" placeholder="Ingresa disponibilidad" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>
-                                <!--<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control image-file" name="pic" accept="image/*">
-                                    </div>
-                                </div>-->
+                                </div>                      
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Descripción / Detalles del Producto</label>

@@ -27,19 +27,12 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/lista-productos',  [ProductoController::class,'index']);
-Route::get('/admin/add-producto',  [ProductoController::class,'create']);
-Route::get('/admin/producto/{producto}/edit',  [ProductoController::class,'edit'])->name('admin.producto.editar');
-
-
-//end ADMIN
-
 Route::get('/login', function () {
     return view('login');
 });
 
-//Route::get('producto', [ProductoController::class, 'index']);
-Route::resource('producto', ProductoController::class);
+Route::resource('admin/producto', ProductoController::class);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
