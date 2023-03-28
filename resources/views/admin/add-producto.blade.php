@@ -65,7 +65,11 @@
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
                                             <option>Mesas</option>
                                             <option>Sillas</option>
+                                            <option>Cristaleria</option>
+                                            <option>Luz y sonido</option>
+                                            <option>Toldos</option>
                                             <option>Bases</option>
+                                            <option>Decoración</option>
                                         </select>
                                     </div>
                                 </div>

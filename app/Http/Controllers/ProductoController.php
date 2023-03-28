@@ -89,7 +89,7 @@ class ProductoController extends Controller
         
         $request->validate([
             'nombre' => 'string|required',
-            'descripcion' => 'string',
+            'descripcion' => 'string|nullable',
             'color' => 'string|nullable',
             'total' => 'numeric|min:0',
             'disponible' => 'numeric',
@@ -111,7 +111,7 @@ class ProductoController extends Controller
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;
-        $producto->save();
+        $producto->save();             
 
         return redirect('/producto');
     }

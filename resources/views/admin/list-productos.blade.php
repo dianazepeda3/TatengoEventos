@@ -56,12 +56,16 @@
                                 <td>{{ $prod->disponible }}</td>
                                 <td>
                                     <div class="d-flex align-items-center list-action">
-                                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver"
-                                            href="#"><i class="ri-eye-line mr-0"></i></a>
+                                        <!--<a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver"
+                                            href="#"><i class="ri-eye-line mr-0"></i></a>-->
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"
                                              href="{{route('admin.producto.editar', $prod)}}"><i class="ri-pencil-line mr-0"></i></a>
                                         <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
-                                            href="#"><i class="ri-delete-bin-line mr-0"></i></a>
+                                             href="javascript:{}" onclick="document.getElementById('my_form').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
+                                        <form id="my_form" action={{ route('producto.destroy', $prod) }} method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>                                                                                   
                                     </div>
                                 </td>
                             </tr>
