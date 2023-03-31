@@ -27,18 +27,16 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::resource('admin/producto', ProductoController::class);
+
+Route::resource('admin/producto', ProductoController::class)->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
     })->name('dashboard');
 });

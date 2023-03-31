@@ -6,7 +6,7 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href="/admin/lista-productos" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
+                    <a href="/admin/producto/lista-productos" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
                 </div>
                 <x-validation-errors/>        
             </div>  

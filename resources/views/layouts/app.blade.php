@@ -157,12 +157,34 @@
                                                         <img src="/assets-admin/images/user/1.png" alt="profile-img"
                                                             class="rounded profile-img img-fluid avatar-70">
                                                     </div>
-                                                    <div class="p-3">
-                                                        <h5 class="mb-1">JoanDuo@property.com</h5>
-                                                        <p class="mb-0">Since 10 march, 2020</p>
+                                                    <div class="p-3">                                                        
                                                         <div class="d-flex align-items-center justify-content-center mt-3">
                                                             <a href="../app/user-profile.html" class="btn border mr-2">Profile</a>
-                                                            <a href="auth-sign-in.html" class="btn border">Sign Out</a>
+                                                            <!--<a href="auth-sign-in.html" class="btn border">Sign Out</a>-->
+                                                            
+                                                            <form method="POST" action="{{ route('logout') }}">
+                                                                @csrf
+                                                                
+                                                                <a href="{{ route('logout') }}"  onclick="event.preventDefault(); this.closest('form').submit();" class="btn border"> <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>                                                                  
+                                                            </form>
+                                                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                                                <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                                                    {{ __('API Tokens') }}
+                                                                </x-dropdown-link>
+                                                            @endif
+
+                                                            <div class="border-t border-gray-200 dark:border-gray-600"></div>
+
+                                                            <!-- Authentication
+                                                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                                                @csrf
+
+                                                                <x-dropdown-link href="{{ route('logout') }}"
+                                                                        @click.prevent="$root.submit();">
+                                                                    {{ __('Log Out') }}
+                                                                </x-dropdown-link>
+                                                            </form>-->
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>

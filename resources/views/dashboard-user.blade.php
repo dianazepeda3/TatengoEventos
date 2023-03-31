@@ -1,4 +1,9 @@
-<x-user.layout info="true">
+<x-guest-layout>
+    <!-- ======= Header ======= -->
+    <x-user.header info="true"/>
+    
+    <!-- ====== CONTENT ======= -->
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
 
@@ -621,5 +626,5 @@
             </div>
         </section><!-- End Contact Section -->
     </main><!-- End #main -->
-</x-user.layout>
+</x-guest-layout>
     

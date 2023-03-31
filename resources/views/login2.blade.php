@@ -26,7 +26,15 @@
                                 <div class="p-3">
                                     <h2 class="mb-2">Sign In</h2>
                                     <p>Login to stay connected.</p>
-                                    <form>
+
+                                    @if (session('status'))
+                                        <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
                                         <div class="row">
                                         <div class="col-lg-12">
                                             <div class="floating-label form-group">

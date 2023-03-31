@@ -37,11 +37,7 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-    <x-user.header info={{$info}}/>
-
-  <!-- ====== Content ======= -->
+  
   {{ $slot }}
 
   <!-- ======= Footer ======= -->
