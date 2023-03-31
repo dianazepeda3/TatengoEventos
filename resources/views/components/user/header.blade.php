@@ -12,8 +12,7 @@
                 <li><a class="nav-link scrollto " href="#hero">Inicio</a></li>
                 <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
                 <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-                <li><a class="nav-link   scrollto" href="#portfolio">Eventos</a></li>
-                <li><a class="nav-link scrollto" href="#team">Team</a></li>            
+                <li><a class="nav-link   scrollto" href="#portfolio">Eventos</a></li>    
                 <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>                                            
             @endif
             <li><a class="getstarted scrollto" href={{route('login')}}>Iniciar Sesión</a></li>
