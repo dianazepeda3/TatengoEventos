@@ -17,7 +17,7 @@ return new class extends Migration
             //$table->string('codigo');
             $table->string('categoria');
             $table->float('precio');
-            $table->string('color')->default('N/A');
+            $table->string('color')->nullable();
             $table->integer('total');
             $table->integer('disponible');
             $table->text('descripcion')->nullable();

@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="/producto" method="POST" data-toggle="validator">
+                        <form action={{ route('producto.store' )}} method="POST" data-toggle="validator">
                             @csrf
                             <div class="row">                             
                                 <div class="col-md-6">                      
@@ -87,8 +87,8 @@
                                     </div>
                                 </div>
                             </div>                            
-                            <button type="submit" class="btn btn-primary mr-2">Add Product</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <button type="submit" class="btn btn-primary mr-2">Agregar Producto</button>
+                            <!--<button type="reset" class="btn btn-danger">Reset</button>-->
                         </form>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\MeseroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-
-
 Route::resource('admin/producto', ProductoController::class)->middleware('auth');
+Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
+
 
 Route::middleware([
     'auth:sanctum',

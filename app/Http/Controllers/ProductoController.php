@@ -35,12 +35,12 @@ class ProductoController extends Controller
         //dd();  
         $request->validate([
             'nombre' => 'string|required',
-            'categoria' => 'string',
-            'precio' => 'numeric|min:0',            
-            'color' => 'string|nullable',
-            'total' => 'numeric|min:0',
-            'disponible' => 'numeric|min:0',
             'descripcion' => 'string|nullable',
+            'color' => 'string|nullable',
+            'total' => 'integer|min:0|required',
+            'disponible' => 'integer|min:0|required',
+            'precio' => 'numeric|min:0|required',
+            'categoria' => 'string|required',
         ]);
         
         
@@ -48,9 +48,7 @@ class ProductoController extends Controller
         $producto->nombre = $request->nombre;
         //$producto->codigo = $request->codigo;
         $producto->categoria = $request->categoria;
-        if(isset( $request->color)){
-            $producto->color = $request->color;
-        } 
+        $producto->color = $request->color;        
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;
@@ -87,22 +85,16 @@ class ProductoController extends Controller
             'nombre' => 'string|required',
             'descripcion' => 'string|nullable',
             'color' => 'string|nullable',
-            'total' => 'numeric|min:0',
-            'disponible' => 'numeric|min:0',
-            'precio' => 'numeric|min:0',
-            'categoria' => 'string',
+            'total' => 'integer|min:0|required',
+            'disponible' => 'integer|min:0|required',
+            'precio' => 'numeric|min:0|required',
+            'categoria' => 'string|required',
         ]);
         
     
         $producto->nombre = $request->nombre;
-        $producto->descripcion = $request->descripcion;
-        
-        if(isset($request->color)){
-            $producto->color = $request->color;
-        }else{
-            $producto->color = "N/A";
-        } 
-                              
+        $producto->descripcion = $request->descripcion;                
+        $producto->color = $request->color;                                      
         $producto->categoria = $request->categoria;
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
