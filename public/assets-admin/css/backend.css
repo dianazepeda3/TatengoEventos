@@ -7077,7 +7077,7 @@ a.text-light-gray:hover, a.text-light-gray:focus {
   top: 0;
   width: 260px;
   height: 100%;
-  background: #ffffff;
+  background: rgba(40, 58, 90, 0.9);
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
   -ms-transition: all 0.6s ease-in-out;
@@ -7126,7 +7126,7 @@ a.text-light-gray:hover, a.text-light-gray:focus {
         font-size: 16px;
         white-space: nowrap;
         display: block;
-        color: #676E8A;
+        color: #ffffff;
         position: relative;
         padding: 15px 20px 15px 20px;
         margin-bottom: 5px;
@@ -7214,7 +7214,7 @@ a.text-light-gray:hover, a.text-light-gray:focus {
   border-radius: unset; }
 
 .sidebar-default .iq-sidebar-menu .iq-menu li a:hover {
-  color: #01041b; }
+  color: #47b2e4; }
   .sidebar-default .iq-sidebar-menu .iq-menu li a:hover svg {
     color: #FF7E41; }
 
@@ -7442,7 +7442,7 @@ a.text-light-gray:hover, a.text-light-gray:focus {
 .wrapper-menu {
   font-size: 25px;
   text-align: center;
-  color: #110A57;
+  color: #EFEFEF;
   position: relative;
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
@@ -7596,7 +7596,7 @@ a.text-light-gray:hover, a.text-light-gray:focus {
     opacity: 1; } }
 
 .iq-top-navbar {
-  background: #fff;
+  background: rgba(40, 58, 90, 0.9);
   padding: 0 30px 0 30px;
   min-height: 73px;
   position: fixed;
@@ -8134,7 +8134,7 @@ body.sidebar-main .iq-top-navbar {
     line-height: normal;
     min-height: unset; }
     .iq-top-navbar .navbar-toggler {
-      color: #110A57;
+      color: #EFEFEF;
       background: transparent;
       border: none;
       padding: 0;
@@ -14599,7 +14599,7 @@ body {
   padding: 0;
   margin: 0;
   color: #676E8A;
-  background: #ffffff; }
+  background: #ffffff; /*Fondo blanco*/ }
 
 a:hover {
   text-decoration: none; }

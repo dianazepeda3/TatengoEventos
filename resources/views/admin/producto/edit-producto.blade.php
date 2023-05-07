@@ -1,4 +1,4 @@
-<x-app-layout sel="addP">
+<x-app-layout sel="producto">
     <div class="container-fluid add-form-list">
         <div class="row">
             <div class="col-lg-12">
@@ -6,7 +6,7 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href="/admin/producto/lista-productos" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
+                    <a href="/admin/producto" class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Productos</a>
                 </div>
                 <x-validation-errors/>        
             </div>  
@@ -33,39 +33,14 @@
                                     <div class="form-group">
                                         <label>Categoria *</label>
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option                                             
-                                                @if (isset($producto->categoria))
-                                                    @if ($producto->categoria == "Mesas")    
+                                            @foreach ($categorias as $categoria)                                            
+                                                <option
+                                                    @if ($producto->categoria == $categoria)    
                                                         selected
                                                     @endif
-                                                @else
-                                                    @if (old('categoria') == "Mesas")    
-                                                        selected
-                                                    @endif
-                                                @endif
-                                            >Mesas</option>
-                                            <option                                              
-                                                @if (isset($producto->categoria))
-                                                    @if ($producto->categoria == "Sillas")    
-                                                        selected
-                                                    @endif
-                                                @else
-                                                    @if (old('categoria') == "Sillas")    
-                                                        selected
-                                                    @endif
-                                                @endif
-                                            >Sillas</option>
-                                            <option                                             
-                                                @if (isset($producto->categoria))
-                                                    @if ($producto->categoria == "Bases")    
-                                                        selected
-                                                    @endif
-                                                @else
-                                                    @if (old('categoria') == "Bases")    
-                                                        selected
-                                                    @endif
-                                                @endif
-                                            >Bases</option>
+                                                >{{$categoria->nombre}}</option>
+                                            @endforeach  
+                                            
                                         </select>
                                     </div>
                                 </div>                                
@@ -105,7 +80,7 @@
                                 </div>
                             </div>                            
                             <button type="submit" class="btn btn-primary mr-2">Editar Producto</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <a href={{route('producto.index')}}  class="btn btn-danger">Cancelar</a>
                         </form>
                     </div>
                 </div>

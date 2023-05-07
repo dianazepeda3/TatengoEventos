@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,7 +24,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('/admin/producto/add-producto');
+        $categorias = Categoria::all();
+        return view('/admin/producto/add-producto', compact('categorias'));
     }
 
     /**
@@ -47,7 +49,7 @@ class ProductoController extends Controller
         $producto = new Producto();
         $producto->nombre = $request->nombre;
         //$producto->codigo = $request->codigo;
-        $producto->categoria = $request->categoria;
+        $producto->categoria_id = $request->categoria;
         $producto->color = $request->color;        
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
@@ -72,7 +74,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        return view('/admin/producto/edit-producto', compact('producto'));
+        $categorias = Categoria::all();
+        return view('/admin/producto/edit-producto', compact('producto', 'categorias'));
     }
 
     /**
@@ -108,7 +111,7 @@ class ProductoController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Producto $producto)
-    {
+    {                
         $producto->delete();
         return redirect()->route('producto.index');
     }

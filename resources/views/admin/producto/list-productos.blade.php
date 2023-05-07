@@ -1,4 +1,4 @@
-<x-app-layout sel="listP">
+<x-app-layout sel="producto">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -49,7 +49,7 @@
                                     </div>
                                 </td>
                                 <!--<td>{{ $prod->codigo }}</td>-->
-                                <td>{{ $prod->categoria }}</td>
+                                <td>{{ $prod->categoria->nombre }}</td>
                                 <td>{{ $prod->precio }}</td>
                                 <td>
                                     @if (isset($prod->color))
@@ -67,8 +67,8 @@
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"
                                              href="{{route('producto.edit', $prod)}}"><i class="ri-pencil-line mr-0"></i></a>
                                         <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
-                                             href="javascript:{}" onclick="document.getElementById('my_form').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
-                                        <form id="my_form" action={{ route('producto.destroy', $prod) }} method="POST">
+                                             href="javascript:{}" onclick="document.getElementById('my_form_{{ $prod->id }}').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
+                                        <form id="my_form_{{ $prod->id }}" action={{ route('producto.destroy', $prod) }} method="POST">
                                             @csrf
                                             @method('DELETE')
                                         </form>                                                                                   

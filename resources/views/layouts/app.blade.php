@@ -34,10 +34,10 @@
                             </a>
                         </div>
                         <div class="iq-search-bar device-search">
-                            <form action="#" class="searchbox">
+                            <!--<form action="#" class="searchbox">
                                 <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 <input type="text" class="text search-input" placeholder="Buscar aqui...">
-                            </form>
+                            </form>-->
                         </div>
                         <div class="d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -163,8 +163,7 @@
                                                             <!--<a href="auth-sign-in.html" class="btn border">Sign Out</a>-->
                                                             
                                                             <form method="POST" action="{{ route('logout') }}">
-                                                                @csrf
-                                                                
+                                                                @csrf                                                                
                                                                 <a href="{{ route('logout') }}"  onclick="event.preventDefault(); this.closest('form').submit();" class="btn border"> <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>                                                                  
                                                             </form>
                                                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

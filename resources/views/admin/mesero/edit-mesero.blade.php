@@ -1,4 +1,4 @@
-<x-app-layout sel="addM">
+<x-app-layout sel="mesero">
     <div class="container-fluid add-form-list">
         <div class="row">
             <div class="col-lg-12">

@@ -1,4 +1,4 @@
-<x-app-layout sel="addP">
+<x-app-layout sel="producto">
     <div class="container-fluid add-form-list">
         <div class="row">
             <div class="col-lg-12">
@@ -42,13 +42,9 @@
                                     <div class="form-group">
                                         <label>Categoria *</label>
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
-                                            <option>Mesas</option>
-                                            <option>Sillas</option>
-                                            <option>Cristaleria</option>
-                                            <option>Luz y sonido</option>
-                                            <option>Toldos</option>
-                                            <option>Bases</option>
-                                            <option>Decoración</option>
+                                            @foreach ($categorias as $categoria)
+                                                <option>{{$categoria->nombre}}</option>
+                                            @endforeach                                      
                                         </select>
                                     </div>
                                 </div>                            

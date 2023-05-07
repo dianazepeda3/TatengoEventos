@@ -15,14 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');            
             //$table->string('codigo');
-            $table->string('categoria');
+            //$table->string('categoria_id');
             $table->float('precio');
             $table->string('color')->nullable();
             $table->integer('total');
             $table->integer('disponible');
-            $table->text('descripcion')->nullable();
+            $table->text('descripcion')->nullable();            
             
             $table->timestamps();
+
+           
         });
     }
 

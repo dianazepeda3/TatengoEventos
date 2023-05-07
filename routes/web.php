@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\MeseroController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/admin', function () {
 
 Route::resource('admin/producto', ProductoController::class)->middleware('auth');
 Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
+Route::resource('admin/categoria', CategoriaController::class)->parameters(['categoria' => 'categoria'])->middleware('auth');
 
 
 Route::middleware([
