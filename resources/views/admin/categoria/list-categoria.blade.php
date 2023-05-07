@@ -21,7 +21,8 @@
                                 </div>
                             </th>                    
                             <th>Categoria</th>
-                            <th>Descipcion</th>
+                            <th>Categoria de</th>
+                            <th>Descipcion</th>                            
                             <th>Acción</th>                                                     
                         </tr>
                     </thead>
@@ -34,14 +35,15 @@
                                         <label for="checkbox2" class="mb-0"></label>
                                     </div>
                                 </td>
-                                <td>{{ $cat->nombre }}</td>
+                                <td>{{ $cat->nombre }}</td>                                   
+                                <td>{{ $cat->categoria_de }}</td> 
                                 <td>
                                     @if (isset($cat->descripcion))
                                       {{$cat->descripcion}}
                                     @else
                                         Sin descripción
                                     @endif                                                                    
-                                </td>                                                             
+                                </td>                                                                                         
                                 <td>
                                     <div class="d-flex align-items-center list-action">
                                         <!--<a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver"

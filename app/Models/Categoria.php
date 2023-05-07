@@ -12,7 +12,7 @@ class Categoria extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'descripcion', 'categoria_de'];
    
     public function productos()
     {

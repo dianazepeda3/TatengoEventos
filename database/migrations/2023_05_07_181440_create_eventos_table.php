@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->string('categoria_de');
-            $table->string('nombre')->unique();
-            $table->text('descripcion')->nullable();
+            $table->string('nombre-cliente');  
+            $table->float('cotizacion');
+            $table->float('cantidad-pagada');
+            $table->date('fecha-evento');            
+            $table->timestamps();
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('eventos');
     }
 };

@@ -24,7 +24,7 @@ class ProductoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->word(),
-            'categoria_id' => Categoria::all()->random()->id,
+            'categoria_id' => Categoria::where('categoria_de', '=', 'Productos')->get()->random()->id,
             'precio' => $this->faker->randomFloat(2, 1, 1000),
             'color' => $this->faker->randomElement(['Blanco', 'Negro', 'Rosa', 'Azul']),
             'total' => $this->faker->randomDigit(),

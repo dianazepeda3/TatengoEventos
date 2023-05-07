@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::all(); 
         return view('/admin/categoria/list-categoria', compact('categorias'));
     }
 
@@ -33,7 +33,8 @@ class CategoriaController extends Controller
     {
         $request->validate([
             'nombre' => 'string|required',
-            'descripcion' => 'string|nullable',        
+            'descripcion' => 'string|nullable', 
+            'categoria_de' => 'string',       
         ]);
 
         Categoria::create($request->all());

@@ -33,12 +33,14 @@
                                     <div class="form-group">
                                         <label>Categoria *</label>
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
-                                            @foreach ($categorias as $categoria)                                            
-                                                <option value="{{ $categoria->id }}"
-                                                    @if ($producto->categoria_id == $categoria->id)    
-                                                        selected
-                                                    @endif
-                                                >{{$categoria->nombre}}</option>
+                                            @foreach ($categorias as $categoria)   
+                                                @if ($categoria->categoria_de == "Productos")                                         
+                                                    <option value="{{ $categoria->id }}"
+                                                        @if ($producto->categoria_id == $categoria->id)    
+                                                            selected
+                                                        @endif
+                                                    >{{$categoria->nombre}}</option>
+                                                @endif
                                             @endforeach  
                                             
                                         </select>

@@ -37,8 +37,17 @@
                                         <input id="nombre" name="nombre" type="text" class="form-control" value="{{ old('nombre') }}" placeholder="Ingresa nombre" data-errors="Please Enter Name." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>                                                                                                                                           
+                                </div>   
                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Categoria *</label>
+                                        <select id="categoria_de" name="categoria_de" name="type" class="selectpicker form-control" data-style="py-0">                                            
+                                            <option value="Productos">Productos</option>     
+                                            <option value="Eventos">Eventos</option>                                                                               
+                                        </select>
+                                    </div>
+                                </div>                                                                                                                                              
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Descripción </label>
                                         <textarea id="descripcion" name="descripcion" class="form-control" value="{{ old('descripcion') }}" rows="4"></textarea>
