@@ -17,7 +17,15 @@
                         </svg>
                         <span class="ml-4">Dashboard</span>
                     </a>
-                </li>                
+                </li>  
+                <li class="@if($sel == "inventario") active @endif">
+                    <a href="/admin/inventario" class="svg-icon">                        
+                        <svg class="svg-icon" id="p-dash14" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>  
+                        <span class="ml-4">Inventario</span>
+                    </a>
+                </li>                             
                 <li class="@if($sel == "producto") active @endif">
                     <a href={{route('producto.index')}} class="svg-icon">                        
                         <svg class="svg-icon" id="p-dash2" width="20" height="20"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>

@@ -34,8 +34,8 @@
                                         <label>Categoria *</label>
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
                                             @foreach ($categorias as $categoria)                                            
-                                                <option
-                                                    @if ($producto->categoria == $categoria)    
+                                                <option value="{{ $categoria->id }}"
+                                                    @if ($producto->categoria_id == $categoria->id)    
                                                         selected
                                                     @endif
                                                 >{{$categoria->nombre}}</option>

@@ -43,9 +43,9 @@ class CategoriaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Categoria $categoria): Response
+    public function show(Categoria $categoria)
     {
-        //
+        return view('/admin/categoria/categoria-productos', compact('categoria'));
     }
 
     /**
@@ -62,7 +62,13 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria): RedirectResponse
     {
-        //
+        $request->validate([
+            'nombre' => 'string|required',
+            'descripcion' => 'string|nullable',        
+        ]);
+        Categoria::where('id', $categoria->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('categoria.index');
     }
 
     /**
@@ -73,4 +79,10 @@ class CategoriaController extends Controller
         $categoria->delete();
         return redirect()->route('categoria.index');
     }
+    
+    public function mostrarCarrusel(){
+        $categorias = Categoria::all();
+        return view('/admin/categoria/inventario', compact('categorias'));
+    }
+    
 }

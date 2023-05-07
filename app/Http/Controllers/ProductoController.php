@@ -32,9 +32,7 @@ class ProductoController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {      
-        echo $request;
-        //dd();  
+    {           
         $request->validate([
             'nombre' => 'string|required',
             'descripcion' => 'string|nullable',
@@ -48,7 +46,7 @@ class ProductoController extends Controller
         
         $producto = new Producto();
         $producto->nombre = $request->nombre;
-        //$producto->codigo = $request->codigo;
+        //$producto->codigo = $request->codigo;       
         $producto->categoria_id = $request->categoria;
         $producto->color = $request->color;        
         $producto->total = $request->total;
@@ -81,7 +79,7 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto): RedirectResponse
+    public function update(Request $request, Producto $producto)
     {
         
         $request->validate([
@@ -97,8 +95,8 @@ class ProductoController extends Controller
     
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;                
-        $producto->color = $request->color;                                      
-        $producto->categoria = $request->categoria;
+        $producto->color = $request->color;                                     
+        $producto->categoria_id = $request->categoria;
         $producto->total = $request->total;
         $producto->disponible = $request->disponible;
         $producto->precio = $request->precio;

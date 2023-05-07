@@ -16,10 +16,6 @@ use App\Http\Controllers\CategoriaController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});¨*/
-
 Route::get('/', function () {
     return view('dashboard-user');
 });
@@ -29,10 +25,11 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
+Route::get('/admin/inventario', [CategoriaController::class, 'mostrarCarrusel'])->name('admin.inventario')->middleware('auth');
+
 Route::resource('admin/producto', ProductoController::class)->middleware('auth');
 Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
 Route::resource('admin/categoria', CategoriaController::class)->parameters(['categoria' => 'categoria'])->middleware('auth');
-
 
 Route::middleware([
     'auth:sanctum',

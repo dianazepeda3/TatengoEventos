@@ -43,7 +43,7 @@
                                         <label>Categoria *</label>
                                         <select id="categoria" name="categoria" name="type" class="selectpicker form-control" data-style="py-0">
                                             @foreach ($categorias as $categoria)
-                                                <option>{{$categoria->nombre}}</option>
+                                                <option value="{{ $categoria->id }}">{{$categoria->nombre}}</option>
                                             @endforeach                                      
                                         </select>
                                     </div>
