@@ -14,4 +14,17 @@ class Producto extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function paquete(){
+        return $this->belongsToMany(Paquete::class)->withPivot('cantidad');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($producto) {
+            $producto->paquete()->detach();
+        });
+    }
 }

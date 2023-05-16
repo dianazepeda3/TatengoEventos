@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\MeseroController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PaqueteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::get('/admin/inventario', [CategoriaController::class, 'mostrarCarrusel'])
 Route::resource('admin/producto', ProductoController::class)->middleware('auth');
 Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
 Route::resource('admin/categoria', CategoriaController::class)->parameters(['categoria' => 'categoria'])->middleware('auth');
+Route::resource('admin/paquete', PaqueteController::class)->middleware('auth');
+
+Route::get('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 'show_producto'])->name('admin.paquete.producto.show')->middleware('auth');
+Route::post('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 'add_producto'])->name('admin.paquete.producto.add')->middleware('auth');
+Route::delete('admin/paquete/add-producto/{producto}/{paquete}', [PaqueteController::class, 'destroy_producto'])->name('admin.paquete.producto.destroy')->middleware('auth');
+
 
 Route::middleware([
     'auth:sanctum',

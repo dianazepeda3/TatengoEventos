@@ -76,7 +76,7 @@ class CategoriaController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Categoria $categoria)
-    {        
+    {            
         $categoria->delete();
         return redirect()->route('categoria.index');
     }

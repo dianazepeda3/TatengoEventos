@@ -24,7 +24,15 @@ class Categoria extends Model
         parent::boot();
 
         static::deleting(function ($categoria) {
-            $categoria->productos()->delete();
+                      
+            // Obtener los paquetes asociados a la categoría
+            $paquetes = $categoria->productos()->whereHas('paquete')->get();
+
+            // Eliminar los productos en los paquetes
+            foreach ($paquetes as $paquete) {
+                $paquete->paquete()->detach();
+            }
+            $categoria->productos()->delete();  
         });
     }
 }
