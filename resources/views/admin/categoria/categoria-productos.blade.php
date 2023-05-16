@@ -1,3 +1,4 @@
+@can('categoria')
 <x-app-layout sel="inventario">      
     <div class="container-fluid">        
         <div class="row">                      
@@ -49,3 +50,6 @@
         <!-- Page end  -->
     </div>
 </x-app-layout>
+@else
+   {{ abort(403); }}
+@endcan

@@ -66,12 +66,14 @@
                                             href="#"><i class="ri-eye-line mr-0"></i></a>-->
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"
                                              href="{{route('producto.edit', $prod)}}"><i class="ri-pencil-line mr-0"></i></a>
-                                        <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
-                                             href="javascript:{}" onclick="document.getElementById('my_form_{{ $prod->id }}').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
-                                        <form id="my_form_{{ $prod->id }}" action={{ route('producto.destroy', $prod) }} method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>                                                                                   
+                                        @can('delete')
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
+                                                href="javascript:{}" onclick="document.getElementById('my_form_{{ $prod->id }}').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
+                                            <form id="my_form_{{ $prod->id }}" action={{ route('producto.destroy', $prod) }} method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>   
+                                        @endcan                                                                                
                                     </div>
                                 </td>
                             </tr>

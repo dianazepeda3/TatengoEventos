@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Providers\AdminPolicy;
 
 class CategoriaController extends Controller
 {
@@ -76,7 +77,7 @@ class CategoriaController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Categoria $categoria)
-    {            
+    {         
         $categoria->delete();
         return redirect()->route('categoria.index');
     }

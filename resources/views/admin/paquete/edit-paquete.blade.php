@@ -18,12 +18,14 @@
                         </div>
                         <a class="mr-2"></a><a class="mr-2"></a>
                         <a href={{route('admin.paquete.producto.show', $paquete)}} class="btn btn-primary mr-2">Agregar Producto</a>
-                        <a class="btn btn-danger mr-2" href="javascript:{}" 
-                            onclick="document.getElementById('my_form_{{ $paquete->id }}').submit();">Eliminar Paquete</a>                                            
-                        <form id="my_form_{{ $paquete->id }}" action="{{ route('paquete.destroy', $paquete) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                        </form> 
+                        @can('eliminar')                                                    
+                            <a class="btn btn-danger mr-2" href="javascript:{}" 
+                                onclick="document.getElementById('my_form_{{ $paquete->id }}').submit();">Eliminar Paquete</a>                                            
+                            <form id="my_form_{{ $paquete->id }}" action="{{ route('paquete.destroy', $paquete) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            </form> 
+                        @endcan
                     </div>
                     <div class="card-body">                                                
                         <form action={{ route('paquete.update', $paquete) }} method="POST" data-toggle="validator">
