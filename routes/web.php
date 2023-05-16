@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\MeseroController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PaqueteController;
+use App\Http\Controllers\ArchivoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::resource('admin/producto', ProductoController::class)->middleware('auth')
 Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
 Route::resource('admin/categoria', CategoriaController::class)->parameters(['categoria' => 'categoria'])->middleware('auth');
 Route::resource('admin/paquete', PaqueteController::class)->middleware('auth');
+Route::resource('admin/archivo', ArchivoController::class)->middleware('auth');
+
+Route::get('admin/archivo/descarga/{archivo}', [ArchivoController::class, 'descargar'])->name('archivo.descargar')->middleware('auth');
 
 Route::get('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 'show_producto'])->name('admin.paquete.producto.show')->middleware('auth');
 Route::post('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 'add_producto'])->name('admin.paquete.producto.add')->middleware('auth');

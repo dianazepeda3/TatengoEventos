@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('eventos', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
             $table->string('nombre-cliente');  
             $table->float('cotizacion');
             $table->float('cantidad-pagada');
             $table->date('fecha-evento');
-            $table->string('ubicacion');             
+            $table->string('ubicacion');   
+            $table->unsignedBigInteger('categoria_id')->onDelete('cascade');
+            $table->foreign('categoria_id')->references('id')->on('categorias');          
             $table->timestamps();
         });
     }

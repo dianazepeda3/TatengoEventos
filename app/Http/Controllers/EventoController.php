@@ -28,9 +28,9 @@ class EventoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -63,5 +63,5 @@ class EventoController extends Controller
     public function destroy(Evento $evento): RedirectResponse
     {
         //
-    }
+    }   
 }
