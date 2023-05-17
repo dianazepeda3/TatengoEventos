@@ -2,6 +2,9 @@
 
 namespace App\Models;
 use App\Models\Producto;
+use App\Models\Evento;
+use App\Models\EventoFoto;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +21,16 @@ class Categoria extends Model
     {
         return $this->hasMany(Producto::class);
     }
+
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
+
+    public function evento_fotos()
+    {
+        return $this->hasMany(EventoFoto::class);
+    }
     
     protected static function boot()
     {
@@ -33,6 +46,7 @@ class Categoria extends Model
                 $paquete->paquete()->detach();
             }
             $categoria->productos()->delete();  
+            $categoria->eventos()->delete();
         });
     }
 }

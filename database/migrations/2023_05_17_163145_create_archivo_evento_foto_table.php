@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evento_archivo', function (Blueprint $table) {
+        Schema::create('archivo_evento_foto', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('evento_id')->onDelete('cascade');
-            $table->foreign('evento_id')->references('id')->on('eventos');
+            $table->unsignedBigInteger('evento_foto_id')->onDelete('cascade');
+            $table->foreign('evento_foto_id')->references('id')->on('evento_fotos');
             $table->unsignedBigInteger('archivo_id')->onDelete('cascade');
             $table->foreign('archivo_id')->references('id')->on('archivos');  
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evento_archivo');
+        Schema::dropIfExists('archivo_evento_foto');
     }
 };

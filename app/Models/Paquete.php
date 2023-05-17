@@ -16,6 +16,10 @@ class Paquete extends Model
         return $this->belongsToMany(Producto::class)->withPivot('cantidad');
     }
 
+    public function eventos(){
+        return $this->belongsToMany(Evento::class)->withPivot('cantidad');
+    }
+
     protected static function boot()
     {
         parent::boot();

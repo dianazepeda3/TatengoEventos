@@ -6,6 +6,8 @@ use App\Http\Controllers\MeseroController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\ArchivoController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\EventoFotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,9 @@ Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
 Route::resource('admin/categoria', CategoriaController::class)->parameters(['categoria' => 'categoria'])->middleware('auth');
 Route::resource('admin/paquete', PaqueteController::class)->middleware('auth');
 Route::resource('admin/archivo', ArchivoController::class)->middleware('auth');
+Route::resource('admin/evento', EventoController::class)->middleware('auth');
+Route::resource('admin/eventofoto', EventoFotoController::class)->middleware('auth');
+
 
 Route::get('admin/archivo/descarga/{archivo}', [ArchivoController::class, 'descargar'])->name('archivo.descargar')->middleware('auth');
 
@@ -41,6 +46,11 @@ Route::get('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 's
 Route::post('admin/paquete/add-producto/{paquete}', [PaqueteController::class, 'add_producto'])->name('admin.paquete.producto.add')->middleware('auth');
 Route::delete('admin/paquete/add-producto/{producto}/{paquete}', [PaqueteController::class, 'destroy_producto'])->name('admin.paquete.producto.destroy')->middleware('auth');
 
+Route::post('admin/evento/add-paquete/{evento}', [EventoController::class, 'add_paquete'])->name('admin.evento.paquete.add')->middleware('auth');
+Route::delete('admin/evento/add-paquete/{paquete}/{evento}', [EventoController::class, 'destroy_paquete'])->name('admin.evento.paquete.destroy')->middleware('auth');
+
+Route::post('admin/eventofoto/add-archivo/{eventofoto}', [EventoFotoController::class, 'add_archivo'])->name('admin.eventofoto.archivo.add')->middleware('auth');
+Route::delete('admin/eventofoto/add-producto/{archivo}/{eventofoto}', [EventoFotoController::class, 'destroy_archivo'])->name('admin.eventofoto.archivo.destroy')->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

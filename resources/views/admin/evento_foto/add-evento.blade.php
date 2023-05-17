@@ -1,4 +1,4 @@
-<x-app-layout sel="archivo">
+<x-app-layout sel="evento_foto">
     <div class="container-fluid add-form-list">
         <div class="row">
             <div class="col-lg-12">
@@ -6,7 +6,7 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href={{route('categoria.index')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Categorias</a>
+                    <a href={{route('eventofoto.index')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Eventos</a>
                 </div>
                 @if($errors->any())
                     <div class="alert alert-secondary" role="alert">
@@ -24,31 +24,40 @@
                 <div class="card">                    
                     <div class="card-header d-flex justify-content-between">                        
                         <div class="header-title">
-                            <h4 class="card-title">Agregar Archivo</h4>                                           
+                            <h4 class="card-title">Agregar Evento</h4>                                           
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action={{ route('archivo.store')}} method="POST" data-toggle="validator" enctype="multipart/form-data">
+                        <form action={{ route('eventofoto.store' )}} method="POST" data-toggle="validator">
                             @csrf
                             <div class="row">                             
                                 <div class="col-md-6">                      
                                     <div class="form-group">
-                                        <label>Nombre de archivo *</label>
+                                        <label>Nombre *</label>
                                         <input id="nombre" name="nombre" type="text" class="form-control" value="{{ old('nombre') }}" placeholder="Ingresa nombre" data-errors="Please Enter Name." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>   
+                                </div>                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Selecciona Archivo *</label>                                                                        
-                                        <div class="custom-file">
-                                           <input type="file" name="archivo" class="custom-file-input" id="inputGroupFile04">
-                                           <label class="custom-file-label" for="inputGroupFile04">Selecciona Archivo</label>
-                                        </div>                  
+                                        <label>Categoria *</label>
+                                        <select id="categoria_id" name="categoria_id" name="type" class="selectpicker form-control" data-style="py-0">
+                                            @foreach ($categorias as $categoria)
+                                                @if ($categoria->categoria_de == "Eventos")
+                                                    <option value="{{ $categoria->id }}">{{$categoria->nombre}}</option>
+                                                @endif                                                
+                                            @endforeach                                      
+                                        </select>
                                     </div>
-                                </div>                                                                                                                                                                              
+                                </div>                                                                                                                                                                                                                                                               
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Descripción </label>
+                                        <textarea id="descripcion" name="descripcion" class="form-control" value="{{ old('descripcion') }}" rows="2"></textarea>
+                                    </div>
+                                </div>                                
                             </div>                            
-                            <button type="submit" class="btn btn-primary mr-2">Guardar Archivo</button>
+                            <button type="submit" class="btn btn-primary mr-2">Agregar Evento</button>
                             <!--<button type="reset" class="btn btn-danger">Reset</button>-->
                         </form>
                     </div>

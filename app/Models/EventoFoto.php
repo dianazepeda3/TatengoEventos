@@ -7,12 +7,12 @@ use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Evento extends Model
+class EventoFoto extends Model
 {
     use HasFactory;
 
-    public function paquetes(){
-        return $this->belongsToMany(Paquete::class)->withPivot('cantidad');
+    public function archivos(){
+        return $this->belongsToMany(Archivo::class);
     }
 
     public function categoria()
@@ -24,8 +24,8 @@ class Evento extends Model
     {
         parent::boot();
 
-        static::deleting(function ($evento) {
-            $evento->paquetes()->detach();
+        static::deleting(function ($eventofoto) {
+            $eventofoto->archivos()->detach();
         });
     }
 }
