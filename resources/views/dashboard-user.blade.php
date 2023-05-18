@@ -140,103 +140,28 @@
 
             <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <li data-filter="*" class="filter-active">Todos</li>
-                <li data-filter=".filter-app">Globos</li>
-                <li data-filter=".filter-card">Mobiliario</li>
-                <li data-filter=".filter-web">Fiesta tematica</li>
+                @foreach ($categorias as $categoria)
+                    <li data-filter=".filter-{{$categoria->id}}">{{ $categoria->nombre }}</li>
+                @endforeach
             </ul>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion1.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Decoracion con globos</h4>
-                    <p>Globos</p>
-                    <a href="#" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion2.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Decoracion para fiesta infantil</h4>
-                    <p>Fiesta tematica</p>
-                    <a href="#" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion4.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Decoración para fiesta de XV</h4>
-                    <p>Globos</p>
-                    <a href="assets-user/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion3.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Evento</h4>
-                    <p>Mobiliario</p>
-                    <a href="assets-user/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion8.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Fiesta infantil</h4>
-                    <p>Fiesta tematica</p>
-                    <a href="assets-user/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion5.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Decoración con globos</h4>
-                    <p>Globos</p>
-                    <a href="assets-user/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion6.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Evento</h4>
-                    <p>Mobiliario</p>
-                    <a href="assets-user/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion9.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Evento</h4>
-                    <p>Mobiliario</p>
-                    <a href="assets-user/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-img"><img src="assets-user/img/decoraciones/decoracion7.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                    <h4>Posada Navideña</h4>
-                    <p>Fiesta tematica</p>
-                    <a href="assets-user/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-                </div>
-
+                @foreach ($eventofotos as $evento)
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-{{$evento->categoria->id}}">
+                        @if($evento->archivos->count() > 0)
+                            <div class="portfolio-img">
+                                <img class="img-fluid" src="{{ $evento->archivos->first()->url_path }}" alt="Imagen">
+                            </div>
+                        @endif
+                       <div class="portfolio-info">
+                            <h4>{{ $evento->nombre }}</h4>
+                            <p>{{ $evento->categoria->nombre }}</p>
+                            <a href="{{ $evento->archivos->first()->url_path }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $evento->nombre }}"><i class="bx bx-plus"></i></a>
+                            <a href="{{route('evento.detalle', $evento)}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
+                    </div>
+                @endforeach               
             </div>
 
             </div>

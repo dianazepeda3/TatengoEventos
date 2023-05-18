@@ -77,7 +77,7 @@ class PaqueteController extends Controller
         $productos = Producto::whereDoesntHave('paquete', function ($query) use ($paqueteId) {
             $query->where('paquete_id', $paqueteId);
         })->get();        
-        return redirect()->route('admin.paquete.producto.show', $paquete);
+        return redirect()->route('paquete.producto.show', $paquete);
     }
 
     /**

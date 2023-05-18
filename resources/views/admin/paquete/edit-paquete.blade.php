@@ -17,7 +17,7 @@
                             <h4 class="card-title">Editar Paquete</h4>                                           
                         </div>
                         <a class="mr-2"></a><a class="mr-2"></a>
-                        <a href={{route('admin.paquete.producto.show', $paquete)}} class="btn btn-primary mr-2">Agregar Producto</a>
+                        <a href={{route('paquete.producto.show', $paquete)}} class="btn btn-primary mr-2">Agregar Producto</a>
                         @can('eliminar')                                                    
                             <a class="btn btn-danger mr-2" href="javascript:{}" 
                                 onclick="document.getElementById('my_form_{{ $paquete->id }}').submit();">Eliminar Paquete</a>                                            

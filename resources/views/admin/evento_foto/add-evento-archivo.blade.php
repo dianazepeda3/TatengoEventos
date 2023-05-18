@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action={{ route('admin.eventofoto.archivo.add', $eventofoto )}} method="POST" data-toggle="validator">
+                        <form action={{ route('eventofoto.archivo.add', $eventofoto )}} method="POST" data-toggle="validator">
                             @csrf
                             <div class="row"> 
                                 <div class="col-md-12">
@@ -97,7 +97,7 @@
                                                         href="{{ route('archivo.show', $archivo) }}"><i class="ri-eye-line mr-0"></i></a>        
                                                         <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
                                                             href="javascript:{}" onclick="document.getElementById('my_form_{{ $archivo->id }}').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
-                                                        <form id="my_form_{{ $archivo->id }}" action="{{ route('admin.evento.archivo.destroy', [$archivo->id, $eventofoto->id]) }}" method="POST">
+                                                        <form id="my_form_{{ $archivo->id }}" action="{{ route('eventofoto.archivo.destroy', [$archivo->id, $eventofoto->id]) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>                                                                                   

@@ -28,5 +28,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('delete', [AdminPolicy::class, 'delete']);
         Gate::define('categoria', [AdminPolicy::class, 'delete']);
+        Gate::define('autenticado', function ($user) {
+            return $user !== null;
+        });
     }
 }

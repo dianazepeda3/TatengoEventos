@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action={{ route('admin.evento.paquete.add', $evento )}} method="POST" data-toggle="validator">
+                        <form action={{ route('evento.paquete.add', $evento )}} method="POST" data-toggle="validator">
                             @csrf
                             <div class="row"> 
                                 <div class="col-md-6">
@@ -121,7 +121,7 @@
                                                     <div class="d-flex align-items-center list-action">
                                                         <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
                                                             href="javascript:{}" onclick="document.getElementById('my_form_{{ $paquete->id }}').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
-                                                        <form id="my_form_{{ $paquete->id }}" action="{{ route('admin.evento.paquete.destroy', [$paquete->id, $evento->id]) }}" method="POST">
+                                                        <form id="my_form_{{ $paquete->id }}" action="{{ route('evento.paquete.destroy', [$paquete->id, $evento->id]) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>                                                                                   

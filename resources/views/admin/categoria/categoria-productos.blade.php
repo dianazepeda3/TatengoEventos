@@ -8,7 +8,7 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href={{route('admin.inventario')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Inventario</a>
+                    <a href={{route('inventario')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Inventario</a>
                 </div>  
                 <div class="row">
                     @foreach ($categoria->productos as $producto)                                                                                                   
