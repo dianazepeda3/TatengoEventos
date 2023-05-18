@@ -101,6 +101,13 @@ class EventoFotoController extends Controller
         return redirect()->route('eventofoto.index');
     }
 
+    public function destroy_archivo(Archivo $archivo, EventoFoto $eventofoto)
+    {           
+        
+        $archivo->evento_fotos()->detach($eventofoto->id);
+        return redirect()->route('eventofoto.show', $eventofoto);
+    }
+
     public function add_archivo(Request $request, EventoFoto $eventofoto){
         $request->validate([            
             'archivo_id' => 'required',

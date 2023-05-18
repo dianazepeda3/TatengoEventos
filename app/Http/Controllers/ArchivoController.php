@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 
 class ArchivoController extends Controller
@@ -78,7 +79,14 @@ class ArchivoController extends Controller
      */
     public function edit(Archivo $archivo)
     {
-        return view('/admin/archivo/edit-archivo', compact('archivo'));
+        $extension = File::extension($archivo->hash);
+
+        if ($extension == 'jpg' || $extension == 'png') {
+            $imagen = true;
+        } else {
+            $imagen = false;
+        }            
+        return view('/admin/archivo/edit-archivo', compact('archivo', 'imagen'));
     }
 
     /**

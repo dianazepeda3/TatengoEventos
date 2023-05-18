@@ -32,7 +32,7 @@ class Archivo extends Model
         parent::boot();
 
         static::deleting(function ($archivo) {
-            $archivo->eventos()->detach();
+            $archivo->evento_fotos()->detach();
         });
     }
 }

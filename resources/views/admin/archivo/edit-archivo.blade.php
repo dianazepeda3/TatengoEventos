@@ -42,7 +42,13 @@
                                     </div>   
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <img class="img-fluid" src="{{ $archivo->url_path }}" alt="Imagen">  
+                                            @if ($imagen)
+                                                <img class="img-fluid" src="{{ $archivo->url_path }}" alt="Imagen"> 
+                                            @else
+                                                <label>Archivo</label><br>                                                
+                                                <a class="btn btn-primary mr-2" data-toggle="tooltip" data-placement="top" data-original-title="Ver"
+                                                href="{{ route('archivo.show', $archivo) }}">Ver Archivo &nbsp;<i class="ri-eye-line mr-0"></i></a>    
+                                            @endif                                             
                                         </div>
                                     </div>                                                                                                                                                                              
                                 </div>                            

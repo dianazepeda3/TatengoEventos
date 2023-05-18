@@ -91,7 +91,13 @@
                                                 <tr>                                        
                                                     <td>{{ $archivo->nombre }}</td> 
                                                     <td><div class="d-flex align-items-center">
-                                                        <img src="{{ $archivo->url_path }}" class="img-fluid rounded avatar-50 mr-3" alt="image"></div></td>                                                                                                                                                                                    
+                                                        @if (isset($archivo->url_path))                                                                                                                    
+                                                            @if(substr($archivo->url_path, -3) == "jpg" || substr($archivo->url_path, -3) == "png")
+                                                                <img src="{{ $archivo->url_path }}" class="img-fluid rounded avatar-50 mr-3" alt="image"></div></td>                                                                                                                                                                                    
+                                                            @else
+                                                                {{ $archivo->nombre_original }}
+                                                            @endif
+                                                        @endif
                                                     <td>
                                                         <div class="d-flex align-items-center list-action">
                                                             <a class="badge bg-primary mr-2" data-toggle="tooltip" data-placement="top" data-original-title="Ver"

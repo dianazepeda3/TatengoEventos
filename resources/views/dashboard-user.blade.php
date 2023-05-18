@@ -148,24 +148,26 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 
                 @foreach ($eventofotos as $evento)
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-{{$evento->categoria->id}}">
-                        @if($evento->archivos->count() > 0)
-                            <div class="portfolio-img">
-                                <img class="img-fluid" src="{{ $evento->archivos->first()->url_path }}" alt="Imagen">
+                    @if(substr($evento->archivos->first()->url_path, -3) == "jpg" || substr($evento->archivos->first()->url_path, -3) == "png")                                
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{$evento->categoria->id}}">
+                            @if($evento->archivos->count() > 0)
+                                <div class="portfolio-img">
+                                    <img class="img-fluid" src="{{ $evento->archivos->first()->url_path }}" alt="Imagen">
+                                </div>
+                            @endif
+                        <div class="portfolio-info">
+                                <h4>{{ $evento->nombre }}</h4>
+                                <p>{{ $evento->categoria->nombre }}</p>
+                                <a href="
+                                @if (isset($evento->archivos->first()->url_path))
+                                    {{ $evento->archivos->first()->url_path }}                                
+                                @endif 
+                                "
+                                data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $evento->nombre }}"><i class="bx bx-plus"></i></a>
+                                <a href="{{route('evento.detalle', $evento)}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
-                        @endif
-                       <div class="portfolio-info">
-                            <h4>{{ $evento->nombre }}</h4>
-                            <p>{{ $evento->categoria->nombre }}</p>
-                            <a href="
-                            @if (isset($evento->archivos->first()->url_path))
-                            {{ $evento->archivos->first()->url_path }}
-                            @endif 
-                            "
-                            data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $evento->nombre }}"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('evento.detalle', $evento)}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
-                    </div>
+                    @endif
                 @endforeach                   
             </div>
 

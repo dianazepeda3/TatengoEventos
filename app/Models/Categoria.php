@@ -47,6 +47,7 @@ class Categoria extends Model
             }
             $categoria->productos()->delete();  
             $categoria->eventos()->delete();
+            $categoria->evento_fotos()->delete();
         });
     }
 }

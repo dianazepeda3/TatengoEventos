@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/assets-admin/vendor/@fortawesome/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="/assets-admin/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
         <link rel="stylesheet" href="/assets-admin/vendor/remixicon/fonts/remixicon.css">  
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     </head>
     <body class=" color-light ">
         <!-- loader Start -->
@@ -166,5 +167,9 @@
     
     <!-- app JavaScript -->
     <script src="/assets-admin/js/app.js"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
   </body>
 </html>

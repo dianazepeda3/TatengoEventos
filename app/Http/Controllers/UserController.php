@@ -116,9 +116,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy(User $user)
     {
-        $categoria->delete();
-        return redirect()->route('categoria.index');
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }

@@ -19,12 +19,12 @@
                         <a class="mr-2"></a><a class="mr-2"></a>
                         <a href={{route('paquete.producto.show', $paquete)}} class="btn btn-primary mr-2">Agregar Producto</a>
                         @can('admin')                                                    
-                            <a class="btn btn-danger mr-2" href="javascript:{}" 
-                                onclick="document.getElementById('my_form_{{ $paquete->id }}').submit();">Eliminar Paquete</a>                                            
+                            <a class="btn btn-danger mr-2 eliminar" href="#" data-id="{{ $paquete->id }} data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
+                               >Eliminar Paquete</a>                                            
                             <form id="my_form_{{ $paquete->id }}" action="{{ route('paquete.destroy', $paquete) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                            </form> 
+                            </form>                           
                         @endcan
                     </div>
                     <div class="card-body">                                                
@@ -61,3 +61,55 @@
             </div>
         </div>
 </x-app-layout>
+<script>
+    // Capturar el evento de clic en el enlace de eliminar
+    $('.eliminar').on('click', function(event) {
+        event.preventDefault();
+        
+        // Obtener el ID del paquete a eliminar desde el atributo data-id
+        var productId = $(this).data('id');
+        
+        // Mostrar la ventana emergente de confirmación
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción no se puede deshacer.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Realizar la eliminación mediante Ajax
+                $.ajax({
+                    url: '{{ route("paquete.destroy", ":id") }}'.replace(':id', productId),
+                    type: 'POST',
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // Eliminación exitosa
+                        Swal.fire(
+                            'Eliminado',
+                            'El paquete ha sido eliminado.',
+                            'success'
+                        ).then((result) => {
+                            // Actualizar la página o realizar alguna otra acción
+                            window.location.href = '{{ route("paquete.index") }}';
+                        });                        
+                    },
+                    error: function(xhr) {
+                        // Error en la eliminación
+                        Swal.fire(
+                            'Error',
+                            'Ha ocurrido un error al eliminar el paquete.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    });
+</script>

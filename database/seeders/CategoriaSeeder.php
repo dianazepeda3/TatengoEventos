@@ -53,7 +53,6 @@ class CategoriaSeeder extends Seeder
                 'nombre' => 'Posada',
                 'descripcion' => 'Descripción Categoría 8',
             ],
-            // Agrega más datos según tus necesidades
         ];
 
         // Insertar los datos en la tabla categorias

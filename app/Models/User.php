@@ -73,4 +73,13 @@ class User extends Authenticatable
     {
         return $this->isEmpleado;
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {                                  
+            $user->eventos()->delete();
+        });
+    }
 }

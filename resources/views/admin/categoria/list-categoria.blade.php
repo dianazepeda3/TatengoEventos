@@ -56,7 +56,12 @@
                                             <form id="my_form_{{ $cat->id }}" action={{ route('categoria.destroy', $cat) }} method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                            </form>                                                                                   
+                                            </form>  
+                                            <a class="badge bg-warning mr-2 eliminar" data-id="{{ $cat->id }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar" href="#"><i class="ri-delete-bin-line mr-0"></i></a>                                          
+                                                <form id="my_form_{{ $cat->id }}" action="{{ route('categoria.destroy', $cat) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>                                                                                   
                                         </div>
                                     </td>
                                 </tr>
@@ -71,3 +76,56 @@
 @else
    {{ abort(404); }}
 @endcan
+
+<script>
+    // Capturar el evento de clic en el enlace de eliminar
+    $('.eliminar').on('click', function(event) {
+        event.preventDefault();
+        
+        // Obtener el ID del producto a eliminar desde el atributo data-id
+        var catId = $(this).data('id');
+        
+        // Mostrar la ventana emergente de confirmación
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Se eliminaran todos los productos, eventos y eventos muestra de la categoria.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Realizar la eliminación mediante Ajax
+                $.ajax({
+                    url: '{{ route("categoria.destroy", ":id") }}'.replace(':id', catId),
+                    type: 'POST',
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // Eliminación exitosa
+                        Swal.fire(
+                            'Eliminado',
+                            'La categoria ha sido eliminada.',
+                            'success'
+                        ).then((result) => {
+                            // Actualizar la página o realizar alguna otra acción
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr) {
+                        // Error en la eliminación
+                        Swal.fire(
+                            'Error',
+                            'Ha ocurrido un error al eliminar la categoria.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    });
+</script>

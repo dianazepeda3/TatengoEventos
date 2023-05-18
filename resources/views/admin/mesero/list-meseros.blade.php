@@ -70,12 +70,11 @@
                                             <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"
                                                 href="{{route('mesero.edit', $mesero)}}"><i class="ri-pencil-line mr-0"></i></a>
                                             @can('admin')                                                                                    
-                                                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar"
-                                                    href="javascript:{}" onclick="document.getElementById('my_form').submit();"><i class="ri-delete-bin-line mr-0"></i></a>                                          
-                                                <form id="my_form" action={{ route('mesero.destroy', $mesero) }} method="POST">
+                                                <a class="badge bg-warning mr-2 eliminar" data-id="{{ $mesero->id }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar" href="#"><i class="ri-delete-bin-line mr-0"></i></a>                                          
+                                                <form id="my_form_{{ $mesero->id }}" action="{{ route('mesero.destroy', $mesero) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                </form>   
+                                                </form>    
                                             @endcan                                                                                
                                         </div>
                                     </td>
@@ -91,3 +90,56 @@
 @else
     {{ abort(404); }}
 @endcan
+
+<script>
+    // Capturar el evento de clic en el enlace de eliminar
+    $('.eliminar').on('click', function(event) {
+        event.preventDefault();
+        
+        // Obtener el ID del producto a eliminar desde el atributo data-id
+        var meseroId = $(this).data('id');
+        
+        // Mostrar la ventana emergente de confirmación
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción no se puede deshacer.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Realizar la eliminación mediante Ajax
+                $.ajax({
+                    url: '{{ route("mesero.destroy", ":id") }}'.replace(':id', meseroId),
+                    type: 'POST',
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // Eliminación exitosa
+                        Swal.fire(
+                            'Eliminado',
+                            'El mesero ha sido eliminado.',
+                            'success'
+                        ).then((result) => {
+                            // Actualizar la página o realizar alguna otra acción
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr) {
+                        // Error en la eliminación
+                        Swal.fire(
+                            'Error',
+                            'Ha ocurrido un error al eliminar al mesero.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    });
+</script>
