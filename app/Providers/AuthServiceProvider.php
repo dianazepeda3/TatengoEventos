@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Team::class => TeamPolicy::class,
+        User::class => UserPolicy::class,
     ];
 
     /**
@@ -26,10 +27,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('delete', [AdminPolicy::class, 'delete']);
-        Gate::define('categoria', [AdminPolicy::class, 'delete']);
+        Gate::define('admin', [AdminPolicy::class, 'admin']);
         Gate::define('autenticado', function ($user) {
             return $user !== null;
         });
+        Gate::define('permisos', [AdminPolicy::class, 'administrar']);         
     }
+
 }

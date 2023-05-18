@@ -6,7 +6,13 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href={{route('categoria.index')}}  class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Categorias</a>
+                    <a href="
+                        @can('permisos')
+                            {{route('evento.index')}} 
+                        @else
+                            {{route('evento.categoria')}} 
+                        @endcan  
+                    " class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Eventos</a>  
                 </div>
                 <x-validation-errors/>        
             </div>  
@@ -91,23 +97,25 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>    
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Categoria *</label>
-                                        <select id="estado" name="estado" name="type" class="selectpicker form-control" data-style="py-0">                                                                                  
-                                            <option value="0"   
-                                                @if (!$evento->estado)    
-                                                        selected
-                                                @endif
-                                            >No Aprobado</option>                                              
-                                            <option value="1"   
-                                                @if ($evento->estado)    
-                                                        selected
-                                                @endif
-                                            >Aprobado</option> 
-                                        </select>
-                                    </div>
-                                </div>                                                                                                                                                                
+                                @can('permisos')
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Estado *</label>
+                                            <select id="estado" name="estado" name="type" class="selectpicker form-control" data-style="py-0">                                                                                  
+                                                <option value="0"   
+                                                    @if (!$evento->estado)    
+                                                            selected
+                                                    @endif
+                                                >No Aprobado</option>                                              
+                                                <option value="1"   
+                                                    @if ($evento->estado)    
+                                                            selected
+                                                    @endif
+                                                >Aprobado</option> 
+                                            </select>
+                                        </div>
+                                    </div> 
+                                @endcan                                                                                                                                                               
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Descripción </label>
@@ -116,7 +124,13 @@
                                 </div> 
                             </div>                            
                             <button type="submit" class="btn btn-primary mr-2">Editar Evento</button>
-                            <a href={{route('paquete.index')}}  class="btn btn-danger mr-2">Cancelar</a>                            
+                            <a href="
+                            @can('permisos')
+                                {{route('evento.index')}} 
+                            @else
+                                {{route('evento.categoria')}} 
+                            @endcan 
+                            " class="btn btn-danger mr-2">Cancelar</a>                            
                         </form>                        
                     </div>
                 </div>

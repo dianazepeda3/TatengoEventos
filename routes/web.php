@@ -9,9 +9,13 @@ use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\EventoFotoController;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\EventoFoto;
+use App\Models\Archivo;
 use App\Models\Categoria;
+use App\Models\Paquete;
+use App\Models\Evento;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,14 +33,19 @@ Route::get('/', function () {
     return view('dashboard-user', compact('eventofotos', 'categorias'));
 });
 
+Route::get('/admin/inventario', function () {
+    $categorias = Categoria::all();                 
+    return view('/admin/inventario', compact('categorias'));
+})->name('inventario')->middleware('auth');
+
+Route::get('/admin/evento/categorias', function () {
+    $categorias = Categoria::all();  
+    $user = Auth::user();   
+    $evento = Evento::where('user_id', '=', $user->id)->first();
+    return view('/admin/evento/list-categorias', compact('categorias', 'evento'));
+})->name('evento.categoria')->middleware('auth');
 
 //*** ADMIN ****
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-
-Route::get('/admin/inventario', [CategoriaController::class, 'mostrarCarrusel'])->name('admin.inventario')->middleware('auth');
-
 Route::resource('admin/user', UserController::class)->middleware('auth');
 Route::resource('admin/producto', ProductoController::class)->middleware('auth');
 Route::resource('admin/mesero', MeseroController::class)->middleware('auth');
@@ -45,7 +54,6 @@ Route::resource('admin/paquete', PaqueteController::class)->middleware('auth');
 Route::resource('admin/archivo', ArchivoController::class)->middleware('auth');
 Route::resource('admin/evento', EventoController::class)->middleware('auth');
 Route::resource('admin/eventofoto', EventoFotoController::class)->middleware('auth');
-
 
 Route::get('admin/archivo/descarga/{archivo}', [ArchivoController::class, 'descargar'])->name('archivo.descargar')->middleware('auth');
 
@@ -65,7 +73,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/admin', function () {
-        return view('admin.dashboard');
+        $archivos = Archivo::all();
+        $paquetes = Paquete::all();
+        return view('admin.dashboard', compact('archivos', 'paquetes'));
     })->name('dashboard');
 });
 

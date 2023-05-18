@@ -46,8 +46,8 @@ class EventoFotoController extends Controller
         $evento->descripcion = $request->descripcion;
         $evento->categoria_id = $request->categoria_id;
         $evento->save();                
-            
-        return redirect()->route('eventofoto.index');
+                   
+        return redirect()->route('eventofoto.index');        
     }
 
     /**

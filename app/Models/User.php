@@ -59,8 +59,18 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
+
     public function isAdmin()
     {
         return $this->isAdmin;
+    }
+
+    public function isEmpleado()
+    {
+        return $this->isEmpleado;
     }
 }

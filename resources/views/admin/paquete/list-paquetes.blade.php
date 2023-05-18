@@ -7,7 +7,9 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href={{route('paquete.create')}} class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Agregar Paquete</a>
+                    @can('permisos')
+                        <a href={{route('paquete.create')}} class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Agregar Paquete</a>
+                    @endcan
                 </div>  
                 <div class="row">
                     @foreach ($paquetes as $paquete)                                                                                                   
@@ -19,7 +21,13 @@
                                             <img src="../assets/images/product/3.png" class="img-fluid" alt="image">
                                         </div>-->
                                         <div>
-                                            <a href={{ route('paquete.edit', $paquete)}}><h4 class="mb-2">{{ $paquete->nombre }}</h4></a>
+                                            <a href=
+                                            @can('permisos')
+                                                {{ route('paquete.edit', $paquete)}}
+                                            @else
+                                                {{route('paquete.producto.show', $paquete)}}
+                                            @endcan    
+                                            ><h4 class="mb-2">{{ $paquete->nombre }}</h4></a>
                                             <p>                                                
                                                 <b>Precio:</b> {{ $paquete->precio }}<br>
                                                 <b>Descripción:</b> {{ $paquete->descripcion }}<br>

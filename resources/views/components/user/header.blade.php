@@ -15,7 +15,7 @@
                 <li><a class="nav-link   scrollto" href="#portfolio">Eventos</a></li>    
                 <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>                                            
             @endif
-            @can('autenticado')
+            @can('autenticado')            
               <li><a class="getstarted scrollto" href={{route('dashboard')}}>Panel Administrativo</a></li>
             @else
               <li><a class="getstarted scrollto" href={{route('login')}}>Iniciar Sesión</a></li>

@@ -6,7 +6,13 @@
                     <div>
                         <h4 class="mb-3"></h4>
                     </div>
-                    <a href={{route('evento.index')}} class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Paquetes</a>
+                    <a href="
+                        @can('permisos')
+                            {{route('evento.index')}} 
+                        @else
+                            {{route('evento.categoria')}} 
+                        @endcan  
+                    " class="btn btn-primary add-list"><i class="las ri-arrow-drop-left-line mr-3"></i>Eventos</a>  
                 </div>
                 @if($errors->any())
                     <div class="alert alert-secondary" role="alert">

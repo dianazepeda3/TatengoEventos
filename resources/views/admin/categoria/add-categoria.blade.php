@@ -1,4 +1,4 @@
-@can('categoria')
+@can('admin')
 <x-app-layout sel="categoria">
     <div class="container-fluid add-form-list">
         <div class="row">
@@ -64,5 +64,5 @@
         </div>
 </x-app-layout>
 @else
-   {{ abort(403); }}
+   {{ abort(404); }}
 @endcan

@@ -71,7 +71,7 @@ class CategoriaController extends Controller
         Categoria::where('id', $categoria->id)->update($request->except('_token', '_method'));
 
         return redirect()->route('categoria.index');
-    }
+    }  
 
     /**
      * Remove the specified resource from storage.
@@ -81,10 +81,5 @@ class CategoriaController extends Controller
         $categoria->delete();
         return redirect()->route('categoria.index');
     }
-    
-    public function mostrarCarrusel(){
-        $categorias = Categoria::all();
-        return view('/admin/categoria/inventario', compact('categorias'));
-    }
-    
+           
 }

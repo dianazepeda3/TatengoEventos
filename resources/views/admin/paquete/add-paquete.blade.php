@@ -1,4 +1,4 @@
-<x-app-layout sel="categoria">
+<x-app-layout sel="paquete">
     <div class="container-fluid add-form-list">
         <div class="row">
             <div class="col-lg-12">
@@ -50,27 +50,9 @@
                                         <label>Descripción </label>
                                         <textarea id="descripcion" name="descripcion" class="form-control" value="{{ old('descripcion') }}" rows="2"></textarea>
                                     </div>
-                                </div>
-                                <!--<div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Producto *</label>
-                                        <select id="producto_id" name="producto_id" class="selectpicker form-control" data-style="py-0" data-live-search="true">
-                                            @foreach ($productos as $producto)
-                                                <option value="{{ $producto->id }}">{{$producto->nombre}}</option>                                                                                              
-                                            @endforeach                                      
-                                        </select>
-                                    </div>
-                                </div>   
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Cantidad *</label>
-                                        <input id="cantidad" name="cantidad" type="text" class="form-control" value="{{ old('cantidad') }}" placeholder="Ingresa cantidad" data-errors="Please Enter Price." required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>    -->
+                                </div>                               
                             </div>                            
-                            <button type="submit" class="btn btn-primary mr-2">Agregar Paquete</button>
-                            <!--<button type="reset" class="btn btn-danger">Reset</button>-->
+                            <button type="submit" class="btn btn-primary mr-2">Agregar Paquete</button>                         
                         </form>
                     </div>
                 </div>

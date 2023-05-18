@@ -61,8 +61,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </li>
-                                                                      
+                                    </li>                                                        
                                     <li class="nav-item nav-icon dropdown caption-content">
                                         <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,7 +78,7 @@
                                                     </div>
                                                     <div class="p-3">                                                        
                                                         <div class="d-flex align-items-center justify-content-center mt-3">
-                                                            <a href="../app/user-profile.html" class="btn border mr-2">Profile</a>
+                                                            <!--<a href="../app/user-profile.html" class="btn border mr-2">Profile</a>
                                                             <!--<a href="auth-sign-in.html" class="btn border">Sign Out</a>-->
                                                             
                                                             <form method="POST" action="{{ route('logout') }}">
@@ -92,17 +91,7 @@
                                                                 </x-dropdown-link>
                                                             @endif
 
-                                                            <div class="border-t border-gray-200 dark:border-gray-600"></div>
-
-                                                            <!-- Authentication
-                                                            <form method="POST" action="{{ route('logout') }}" x-data>
-                                                                @csrf
-
-                                                                <x-dropdown-link href="{{ route('logout') }}"
-                                                                        @click.prevent="$root.submit();">
-                                                                    {{ __('Log Out') }}
-                                                                </x-dropdown-link>
-                                                            </form>-->
+                                                            <div class="border-t border-gray-200 dark:border-gray-600"></div>         
                                                         </div>
                                                         </div>
                                                     </div>

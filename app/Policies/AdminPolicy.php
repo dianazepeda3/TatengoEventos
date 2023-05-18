@@ -16,9 +16,21 @@ class AdminPolicy
         //
     }
 
-    public function delete(User $user)
+    public function admin(User $user)
     {
         return $user->isAdmin();
+    }
+
+    public function administrar(User $user){
+        return $user->isAdmin() || $user->isEmpleado();
+    }
+
+    public function update(User $user)
+    {
+        return $user->isAdmin
+        ? Response::allow()
+        : Response::deny('No tienes permiso para editar el
+        registro');
     }
 
    

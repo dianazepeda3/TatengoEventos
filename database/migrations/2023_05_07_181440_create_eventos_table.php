@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('ubicacion');               
             $table->string('descripcion')->nullable();   
             $table->unsignedBigInteger('categoria_id')->onDelete('cascade');
-            $table->foreign('categoria_id')->references('id')->on('categorias');   
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->unsignedBigInteger('user_id')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');   
             $table->boolean('estado')->default(0);       
             $table->timestamps();
         });

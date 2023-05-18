@@ -9,6 +9,7 @@ use App\Models\Paquete;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class EventoController extends Controller
 {
@@ -56,9 +57,14 @@ class EventoController extends Controller
         $evento->descripcion = $request->descripcion;
         $evento->categoria_id = $request->categoria_id;
         $evento->ubicacion = $request->ubicacion;
+        $user = Auth::user();
+        $evento->user_id = $user->id;
         $evento->save();                
             
-        return redirect()->route('evento.index');        
+        if(Auth::user()->isAdmin() || Auth::user()->isEmpleado())
+        return redirect()->route('evento.index');  
+        
+        return redirect()->route('evento.categoria');
     }
 
     /**
@@ -109,10 +115,16 @@ class EventoController extends Controller
         $evento->descripcion = $request->descripcion;
         $evento->categoria_id = $request->categoria_id;
         $evento->ubicacion = $request->ubicacion;
-        $evento->estado = $request->estado;
+        if(isset($estado))
+            $evento->estado = $request->estado;
+        else
+            $evento->estado = 0;
         $evento->save();                
             
-        return redirect()->route('evento.index');   
+        if(Auth::user()->isAdmin() || Auth::user()->isEmpleado())
+        return redirect()->route('evento.index');  
+        
+        return redirect()->route('evento.categoria');   
     }
 
     /**

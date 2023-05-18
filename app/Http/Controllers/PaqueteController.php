@@ -87,7 +87,7 @@ class PaqueteController extends Controller
     {
         $paquetes = Paquete::all(); 
         return view('/admin/paquete/list-paquetes', compact('paquetes'));
-    }
+    }   
 
     /**
      * Show the form for editing the specified resource.
