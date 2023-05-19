@@ -10,6 +10,7 @@ use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\EventoFotoController;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 use App\Models\EventoFoto;
 use App\Models\Archivo;
@@ -27,11 +28,12 @@ use App\Models\Evento;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () {    
     $eventofotos = EventoFoto::all();  
     $categorias = Categoria::where('categoria_de', 'Eventos')->get();
     return view('dashboard-user', compact('eventofotos', 'categorias'));
 });
+
 
 Route::get('/admin/inventario', function () {
     $categorias = Categoria::all();                 
@@ -74,10 +76,19 @@ Route::middleware([
 ])->group(function () {
     Route::get('/admin', function () {
         $archivos = Archivo::all();
-        $paquetes = Paquete::all();
-        return view('admin.dashboard', compact('archivos', 'paquetes'));
+        $paquetes = Paquete::all();  
+        
+        $client = new Client();                     
+        $res = $client->request('GET', 'https://api.thecatapi.com/v1/images/search?limit=10'
+        );                 
+        $data = json_decode($res->getBody(), true); // Decodifica el JSON en un arreglo asociativo
+
+        //$url = $data[0]['url'];
+
+        return view('admin.dashboard', compact('archivos', 'paquetes', 'data'));
     })->name('dashboard');
 });
+
 
 Route::get('/{eventofoto}', function (EventoFoto $eventofoto) {    
     return view('user/evento-detalle', compact('eventofoto'))->layout('layouts.guest');

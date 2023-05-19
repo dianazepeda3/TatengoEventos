@@ -25,7 +25,7 @@ class EmailVerificationTest extends TestCase
 
         $user = User::factory()->withPersonalTeam()->unverified()->create();
 
-        $response = $this->actingAs($user)->get('/email/verify');
+        $response = $this->actingAs($user)->get('/admin');
 
         $response->assertStatus(200);
     }

@@ -1,11 +1,39 @@
 <x-app-layout sel="dash">
-    <h2>Dashboard</h2> 
+    <h2>Dashboard</h2>                           
     <div class="">
         <div>
             <h4 class="mb-3"></h4>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid">              
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">Imagenes de API</h4>
+                            </div> 
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary add-list">Actualizar imagenes</a>                           
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled row top-product mb-0">                                                                                                    
+                                @for ($i = 0; $i<10; $i++) 
+                                    <li class="col-lg-3">
+                                        <div class="card card-block card-stretch card-height mb-0">
+                                            <div class="card-body">
+                                                <div class="bg-warning-light rounded">
+                                                    <img class="img-fluid" src="{{ $data[$i]['url'] }}" alt="Imagen">  
+                                                </div>
+                                                <div class="style-text text-left mt-3">
+                                                    <h5 class="mb-1">Imagen {{ $i }}</h5>                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endfor                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-8">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-header d-flex align-items-center justify-content-between">
